@@ -1,0 +1,20 @@
+fastapi
+uvicorn
+#for template
+jinja2
+#for static files
+aiofiles
+#for database   #new
+sqlalchemy         
+psycopg2
+#for loading environment variables  #new
+python-dotenv
+#for jwt tokens    #new
+python-jose
+#for accessing form data       #new
+python-multipart
+#Databases gives asyncio support for a range of databases.
+databases
+asyncpg  #For postgres async support
+pillow
+python-dateutil

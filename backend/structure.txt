@@ -1,0 +1,5 @@
+Mega/
+└─backend/
+  ├─core
+  | └─config.py
+  └─requirements.txt
